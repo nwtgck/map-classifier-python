@@ -1,0 +1,5 @@
+/.venv
+/map_classifier.egg-info
+__pycache__/
+/.eggs
+*.pyc
