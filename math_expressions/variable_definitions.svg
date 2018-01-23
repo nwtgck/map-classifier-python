@@ -4,8 +4,8 @@
         j    &amp; : \text{Feature vector index} \nonumber \\
         N    &amp; : \text{The number of classes (zero origin)} \nonumber \\
         D    &amp; : \text{The dimension of each feature vector (zero origin)} \nonumber \\
-        C_i  &amp; : i\text{th Class} \nonumber \\
-        x_j  &amp; : j\text{th element a feature vector to be predicted}
+        C_i  &amp; : i\text{th class} \nonumber \\
+        x_j  &amp; : j\text{th element of a feature vector to be predicted}
 \end{aligned}
 </title>
 <defs aria-hidden="true">
@@ -187,11 +187,11 @@
 <g transform="translate(1179,0)">
  <use xlink:href="#E1-MJMAIN-74"></use>
  <use xlink:href="#E1-MJMAIN-68" x="389" y="0"></use>
- <use xlink:href="#E1-MJMAIN-43" x="1196" y="0"></use>
- <use xlink:href="#E1-MJMAIN-6C" x="1918" y="0"></use>
- <use xlink:href="#E1-MJMAIN-61" x="2197" y="0"></use>
- <use xlink:href="#E1-MJMAIN-73" x="2697" y="0"></use>
- <use xlink:href="#E1-MJMAIN-73" x="3092" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-63" x="1196" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-6C" x="1640" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-61" x="1919" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-73" x="2419" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-73" x="2814" y="0"></use>
 </g>
 </g>
 <g transform="translate(0,-3307)">
@@ -207,33 +207,35 @@
  <use xlink:href="#E1-MJMAIN-65" x="3197" y="0"></use>
  <use xlink:href="#E1-MJMAIN-6E" x="3641" y="0"></use>
  <use xlink:href="#E1-MJMAIN-74" x="4198" y="0"></use>
- <use xlink:href="#E1-MJMAIN-61" x="4837" y="0"></use>
- <use xlink:href="#E1-MJMAIN-66" x="5588" y="0"></use>
- <use xlink:href="#E1-MJMAIN-65" x="5894" y="0"></use>
- <use xlink:href="#E1-MJMAIN-61" x="6339" y="0"></use>
- <use xlink:href="#E1-MJMAIN-74" x="6839" y="0"></use>
- <use xlink:href="#E1-MJMAIN-75" x="7229" y="0"></use>
- <use xlink:href="#E1-MJMAIN-72" x="7785" y="0"></use>
- <use xlink:href="#E1-MJMAIN-65" x="8178" y="0"></use>
- <use xlink:href="#E1-MJMAIN-76" x="8872" y="0"></use>
- <use xlink:href="#E1-MJMAIN-65" x="9401" y="0"></use>
- <use xlink:href="#E1-MJMAIN-63" x="9845" y="0"></use>
- <use xlink:href="#E1-MJMAIN-74" x="10290" y="0"></use>
- <use xlink:href="#E1-MJMAIN-6F" x="10679" y="0"></use>
- <use xlink:href="#E1-MJMAIN-72" x="11180" y="0"></use>
- <use xlink:href="#E1-MJMAIN-74" x="11822" y="0"></use>
- <use xlink:href="#E1-MJMAIN-6F" x="12212" y="0"></use>
- <use xlink:href="#E1-MJMAIN-62" x="12962" y="0"></use>
- <use xlink:href="#E1-MJMAIN-65" x="13519" y="0"></use>
- <use xlink:href="#E1-MJMAIN-70" x="14213" y="0"></use>
- <use xlink:href="#E1-MJMAIN-72" x="14770" y="0"></use>
- <use xlink:href="#E1-MJMAIN-65" x="15162" y="0"></use>
- <use xlink:href="#E1-MJMAIN-64" x="15607" y="0"></use>
- <use xlink:href="#E1-MJMAIN-69" x="16163" y="0"></use>
- <use xlink:href="#E1-MJMAIN-63" x="16442" y="0"></use>
- <use xlink:href="#E1-MJMAIN-74" x="16886" y="0"></use>
- <use xlink:href="#E1-MJMAIN-65" x="17276" y="0"></use>
- <use xlink:href="#E1-MJMAIN-64" x="17720" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-6F" x="4837" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-66" x="5338" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-61" x="5894" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-66" x="6645" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-65" x="6951" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-61" x="7396" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-74" x="7896" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-75" x="8286" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-72" x="8842" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-65" x="9235" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-76" x="9929" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-65" x="10458" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-63" x="10902" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-74" x="11347" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-6F" x="11736" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-72" x="12237" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-74" x="12879" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-6F" x="13269" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-62" x="14019" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-65" x="14576" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-70" x="15270" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-72" x="15827" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-65" x="16219" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-64" x="16664" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-69" x="17220" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-63" x="17499" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-74" x="17943" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-65" x="18333" y="0"></use>
+ <use xlink:href="#E1-MJMAIN-64" x="18777" y="0"></use>
 </g>
 </g>
 </g>
