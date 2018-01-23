@@ -11,6 +11,17 @@ A classifier of Maximum A Posteriori (MAP) which is compatible with [scikit-lear
 pip3 install --upgrade git+https://github.com/nwtgck/map-classifier-python.git
 ```
 
+## Mathematical expression
+
+<img src="math_expressions/map_expression.svg" width="300">
+
+where
+
+<img src="math_expressions/variable_definitions.svg" width="500">
+
+(these images created by [math2image](https://github.com/nwtgck/math2image-npm))
+
+
 ## Example Usage
 
 ```python
