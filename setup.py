@@ -9,7 +9,7 @@ sys.path.append('./tests')
 
 setup(
     name='map_classifier',
-    version='0.1.0-SNAPSHOT',
+    version='0.1.0',
     description='Maximum A Posteriori Classifier',
     author='Ryo Ota',
     author_email='nwtgck@gmail.com',
