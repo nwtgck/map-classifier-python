@@ -13,7 +13,7 @@ pip3 install --upgrade git+https://github.com/nwtgck/map-classifier-python.git
 
 ## Mathematical expression
 
-<img src="math_expressions/map_expression.svg" width="300">
+<img src="math_expressions/map_expression.svg" width="230">
 
 where
 
