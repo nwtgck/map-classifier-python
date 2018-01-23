@@ -10,7 +10,7 @@ sys.path.append('./tests')
 setup(
     name='map_classifier',
     version='0.1.0-SNAPSHOT',
-    description='TODO Write descriptoin',
+    description='Maximum A Posteriori Classifier',
     author='Ryo Ota',
     author_email='nwtgck@gmail.com',
     install_requires=open('requirements.txt').read().splitlines(),
