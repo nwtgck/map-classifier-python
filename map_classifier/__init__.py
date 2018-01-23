@@ -2,8 +2,9 @@
 
 from collections import defaultdict
 import numpy as np
+import sklearn
 
-class MAPClassifier:
+class MAPClassifier(sklearn.base.BaseEstimator, sklearn.base.ClassifierMixin):
     def __init__(self):
         pass
 
