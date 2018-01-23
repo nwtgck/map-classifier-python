@@ -26,9 +26,9 @@ install:
 script:
   - coverage run --source=multi_svr setup.py test
 
-# Example run
-#  - pip3 install --upgrade git+https://github.com/nwtgck//map-classifier-python.git@$TRAVIS_BRANCH
-#  - python examples/example1.py
+  # Example run
+  - pip3 install --upgrade git+https://github.com/nwtgck/map-classifier-python.git#$TRAVIS_COMMIT
+  - python examples/example1.py
 
 after_success:
   - coveralls
