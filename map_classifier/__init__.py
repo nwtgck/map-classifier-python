@@ -46,7 +46,8 @@ class MAPClassifier(sklearn.base.BaseEstimator, sklearn.base.ClassifierMixin):
     def predict(self, X):
         preds = []
         for _pred in self._predict(X):
-            pred  = max(zip(_pred, self.Ci_list), key=lambda p_and_Ci: p_and_Ci[0])[1]
+            idx  = np.argmax(_pred)
+            pred = self.Ci_list[idx]
             preds.append(pred)
         return preds
 
