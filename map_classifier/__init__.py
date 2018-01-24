@@ -11,16 +11,24 @@ class MAPClassifier(sklearn.base.BaseEstimator, sklearn.base.ClassifierMixin):
     def fit(self, X, y):
         assert (len(X) == len(y))
 
-        self.p_j_x_dict    = defaultdict(lambda: defaultdict(lambda: 0))
-        self.p_j_x_Ci_dict = defaultdict(lambda: defaultdict(lambda: defaultdict(lambda: 0)))
-        self.Ci_list       = sorted(list(set(y)))
+        p_j_x_dict_count    = 1
+        p_j_x_Ci_dict_count = 1
+        p_j_x_dict          = defaultdict(lambda: defaultdict(lambda: 0.0))
+        p_j_x_Ci_dict       = defaultdict(lambda: defaultdict(lambda: defaultdict(lambda: 0.0)))
         # j : current demension of feature
         # Ci: class label
         for feature, label in zip(X, y):
             Ci = label
             for j, x in enumerate(feature):
-                self.p_j_x_dict[j][x] += 1
-                self.p_j_x_Ci_dict[j][x][Ci] += 1
+                # Calc sequential average
+                p_j_x_dict[j][x]        = ((p_j_x_dict_count-1)*p_j_x_dict[j][x] + 1)/p_j_x_dict_count
+                # Calc sequential average
+                p_j_x_Ci_dict[j][x][Ci] = ((p_j_x_Ci_dict_count-1)*p_j_x_Ci_dict[j][x][Ci] + 1)/p_j_x_Ci_dict_count
+
+        self.p_j_x_dict    = p_j_x_dict
+        self.p_j_x_Ci_dict = p_j_x_Ci_dict
+        self.Ci_list       = sorted(list(set(y)))
+
 
     def _predict(self, X):
         _preds = []
