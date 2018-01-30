@@ -23,6 +23,7 @@ class MapClassifierTest(unittest.TestCase):
     y_pred = clf.predict(X)
     # Train accuracy
     train_accuracy = metrics.accuracy_score(y, y_pred)
+    print("train_accuracy:", train_accuracy)
     # Train accuracy should > 0.90
     self.assertGreater(train_accuracy, 0.90)
 
@@ -43,6 +44,7 @@ class MapClassifierTest(unittest.TestCase):
       test_accuracies.append(test_accuracy)
 
     avg_test_accuracy = np.mean(test_accuracies)
+    print("avg_test_accuracy:", avg_test_accuracy)
     # Average test accuracy should > 0.65
     self.assertGreater(avg_test_accuracy, 0.65)
 

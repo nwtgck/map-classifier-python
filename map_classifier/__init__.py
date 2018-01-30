@@ -11,8 +11,10 @@ class MAPClassifier(sklearn.base.BaseEstimator, sklearn.base.ClassifierMixin):
     def fit(self, X, y):
         assert (len(X) == len(y))
 
-        p_j_x_dict_count    = 1
-        p_j_x_Ci_dict_count = 1
+        self.Ci_list       = sorted(list(set(y)))
+
+        p_j_x_dict_count    = 0
+        p_j_x_Ci_count_dict = {Ci: 0 for Ci in self.Ci_list}
         p_j_x_dict          = defaultdict(lambda: defaultdict(lambda: 0.0))
         p_j_x_Ci_dict       = defaultdict(lambda: defaultdict(lambda: defaultdict(lambda: 0.0)))
         # j : current demension of feature
@@ -20,14 +22,25 @@ class MAPClassifier(sklearn.base.BaseEstimator, sklearn.base.ClassifierMixin):
         for feature, label in zip(X, y):
             Ci = label
             for j, x in enumerate(feature):
-                # Calc sequential average
-                p_j_x_dict[j][x]        = ((p_j_x_dict_count-1)*p_j_x_dict[j][x] + 1)/p_j_x_dict_count
-                # Calc sequential average
-                p_j_x_Ci_dict[j][x][Ci] = ((p_j_x_Ci_dict_count-1)*p_j_x_Ci_dict[j][x][Ci] + 1)/p_j_x_Ci_dict_count
+                p_j_x_dict[j][x]        += 1
+                p_j_x_Ci_dict[j][x][Ci] += 1
+                p_j_x_dict_count += 1
+                p_j_x_Ci_count_dict[Ci] += 1
+
+        # Calc average for p_j_x_dict
+        for j in p_j_x_dict.keys():
+            for x in p_j_x_dict[j].keys():
+                p_j_x_dict[j][x] /= p_j_x_dict_count
+
+        # Calc average for p_j_x_Ci_dict
+        for j in p_j_x_Ci_dict.keys():
+            for x in p_j_x_Ci_dict[j].keys():
+                for Ci in self.Ci_list:
+                    p_j_x_Ci_dict[j][x][Ci] /= p_j_x_Ci_count_dict[Ci]
+
 
         self.p_j_x_dict    = p_j_x_dict
         self.p_j_x_Ci_dict = p_j_x_Ci_dict
-        self.Ci_list       = sorted(list(set(y)))
 
 
     def _predict(self, X):
