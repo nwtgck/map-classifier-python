@@ -13,6 +13,25 @@ random.seed(STANDARD_RANDOM_SEED)
 # Set numpy random seed
 np.random.seed(NP_RANDOM_SEED)
 
+def eq_dict(d1, d2):
+  """
+  Compare whether d1 and d2 are the same or not
+  :param d1:
+  :param d2:
+  :return:
+  """
+  for k in d2.keys(): # NOTE: d2
+    # Just assign the same value (This is for defaultdict)
+    d1[k] = d1[k]
+  for k in d1.keys(): # NOTE: d1
+    # Just assign the same value (This is for defaultdict)
+    d2[k] = d2[k]
+
+  print(set(d1.items())) # TODO Remove print
+  print(set(d2.items())) # TODO Remove print
+
+  return set(d1.items()) == set(d2.items()) # (from: https://stackoverflow.com/a/4527978/2885946)
+
 class MapClassifierTest(unittest.TestCase):
 
   def test_train_accuracy(self):
@@ -47,6 +66,85 @@ class MapClassifierTest(unittest.TestCase):
     print("avg_test_accuracy:", avg_test_accuracy)
     # Average test accuracy should > 0.65
     self.assertGreater(avg_test_accuracy, 0.65)
+
+
+  def test_fit(self):
+
+    # NOTE: I splitted 0th-dimension and 1th-dimension for readability
+
+    # 0th-dimension of feature
+    X_j0 = [
+      1, 1, 2, 3,   2, 3, 2, 2,   5, 4, 5, 3
+    ]
+    # 1th-dimension of feature
+    X_j1 = [
+      2, 2, 3, 2,   4, 4, 4, 3,   4, 4, 3, 3
+    ]
+
+    # Class labels
+    y = [
+       0, 0, 0, 0,   1, 1, 1, 1,   2, 2, 2, 2
+    ]
+
+    # Combine the 2 dimensions
+    X = np.array(list(zip(X_j0, X_j1)))
+
+    print(X)
+
+
+    # Create a MAP classifier
+    map_clf = map_classifier.MAPClassifier()
+    # Learn
+    map_clf.fit(X, y)
+
+    # ==== START: Test for P_j(x_j) ====
+    # P_0(x_0)
+    # (0-th dimension)
+    j = 0
+    expect = {
+      1: 2/12,
+      2: 4/12,
+      3: 3/12,
+      4: 1/12,
+      5: 2/12
+    }
+    self.assertTrue(eq_dict(map_clf.p_j_x_dict[j], expect))
+
+    # P_1(x_1)
+    # (1-th dimension)
+    j = 1
+    expect = {
+      1: 0/12,
+      2: 3/12,
+      3: 4/12,
+      4: 5/12,
+      5: 0/12
+    }
+    self.assertTrue(eq_dict(map_clf.p_j_x_dict[j], expect))
+    # ==== END: Test for P_j(x_j) ====
+
+
+
+    # # ==== Start: Test for P_j(x_j | C_i) ====
+    # # P_0(x_0 | C_0)
+    # # (0-th dimension, Class0)
+    # j = 0
+    # i = 0
+    # expect = {
+    #   1: 2/4,
+    #   2: 1/4,
+    #   3: 1/4,
+    #   4: 0/4,
+    #   5: 0/4
+    # }
+    # self.assertTrue(eq_dict(map_clf.p_j_x_Ci_dict[j][], expect))
+
+
+
+    #
+    # print(X)
+
+    self.assertTrue(True)
 
 
 def suite():
