@@ -27,9 +27,6 @@ def eq_dict(d1, d2):
     # Just assign the same value (This is for defaultdict)
     d2[k] = d2[k]
 
-  print(set(d1.items())) # TODO Remove print
-  print(set(d2.items())) # TODO Remove print
-
   return set(d1.items()) == set(d2.items()) # (from: https://stackoverflow.com/a/4527978/2885946)
 
 class MapClassifierTest(unittest.TestCase):
@@ -125,27 +122,90 @@ class MapClassifierTest(unittest.TestCase):
 
 
 
-    # # ==== Start: Test for P_j(x_j | C_i) ====
-    # # P_0(x_0 | C_0)
-    # # (0-th dimension, Class0)
-    # j  = 0
-    # Ci = 0
-    # expect = {
-    #   1: 2/4,
-    #   2: 1/4,
-    #   3: 1/4,
-    #   4: 0/4,
-    #   5: 0/4
-    # }
-    # print(set(map_clf.p_j_Ci_x_dict[j][Ci].items()))
-    # # self.assertTrue(eq_dict(map_clf.p_j_Ci_x_dict[j][Ci], expect))
+    # ==== Start: Test for P_j(x_j | C_i) ====
 
 
+    # ---- 0-th dimension ----
 
-    #
-    # print(X)
+    # P_0(x_0 | C_0)
+    # (0-th dimension, Class0)
+    j  = 0
+    Ci = 0
+    expect = {
+      1: 2/4,
+      2: 1/4,
+      3: 1/4,
+      4: 0/4,
+      5: 0/4
+    }
+    self.assertTrue(eq_dict(map_clf.p_j_Ci_x_dict[j][Ci], expect))
 
-    self.assertTrue(True)
+    # P_0(x_0 | C_1)
+    # (0-th dimension, Class1)
+    j  = 0
+    Ci = 1
+    expect = {
+      1: 0 / 4,
+      2: 3 / 4,
+      3: 1 / 4,
+      4: 0 / 4,
+      5: 0 / 4
+    }
+    self.assertTrue(eq_dict(map_clf.p_j_Ci_x_dict[j][Ci], expect))
+
+    # P_0(x_0 | C_2)
+    # (0-th dimension, Class2)
+    j  = 0
+    Ci = 2
+    expect = {
+      1: 0 / 4,
+      2: 0 / 4,
+      3: 1 / 4,
+      4: 1 / 4,
+      5: 2 / 4
+    }
+    self.assertTrue(eq_dict(map_clf.p_j_Ci_x_dict[j][Ci], expect))
+
+    # ---- 1-th dimension ----
+
+    # P_1(x_1 | C_0)
+    # (1-th dimension, Class0)
+    j  = 1
+    Ci = 0
+    expect = {
+      1: 0 / 4,
+      2: 3 / 4,
+      3: 1 / 4,
+      4: 0 / 4,
+      5: 0 / 4
+    }
+    self.assertTrue(eq_dict(map_clf.p_j_Ci_x_dict[j][Ci], expect))
+
+    # P_1(x_1 | C_1)
+    # (1-th dimension, Class1)
+    j  = 1
+    Ci = 1
+    expect = {
+      1: 0 / 4,
+      2: 0 / 4,
+      3: 1 / 4,
+      4: 3 / 4,
+      5: 0 / 4
+    }
+    self.assertTrue(eq_dict(map_clf.p_j_Ci_x_dict[j][Ci], expect))
+
+    # P_1(x_1 | C_2)
+    # (1-th dimension, Class2)
+    j  = 1
+    Ci = 2
+    expect = {
+      1: 0 / 4,
+      2: 0 / 4,
+      3: 2 / 4,
+      4: 2 / 4,
+      5: 0 / 4
+    }
+    self.assertTrue(eq_dict(map_clf.p_j_Ci_x_dict[j][Ci], expect))
 
 
 def suite():
