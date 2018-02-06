@@ -34,8 +34,8 @@ class MAPClassifier(sklearn.base.BaseEstimator, sklearn.base.ClassifierMixin):
 
         # Calc average for p_j_Ci_x_dict
         for j in p_j_Ci_x_dict.keys():
-            for x in p_j_Ci_x_dict[j].keys():
-                for Ci in self.Ci_list:
+            for Ci in p_j_Ci_x_dict[j].keys():
+                for x in p_j_Ci_x_dict[j][Ci]:
                     p_j_Ci_x_dict[j][Ci][x] /= count_j_Ci_dict[j][Ci]
 
 

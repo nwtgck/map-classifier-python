@@ -128,8 +128,8 @@ class MapClassifierTest(unittest.TestCase):
     # # ==== Start: Test for P_j(x_j | C_i) ====
     # # P_0(x_0 | C_0)
     # # (0-th dimension, Class0)
-    # j = 0
-    # i = 0
+    # j  = 0
+    # Ci = 0
     # expect = {
     #   1: 2/4,
     #   2: 1/4,
@@ -137,7 +137,8 @@ class MapClassifierTest(unittest.TestCase):
     #   4: 0/4,
     #   5: 0/4
     # }
-    # self.assertTrue(eq_dict(map_clf.p_j_x_Ci_dict[j][], expect))
+    # print(set(map_clf.p_j_Ci_x_dict[j][Ci].items()))
+    # # self.assertTrue(eq_dict(map_clf.p_j_Ci_x_dict[j][Ci], expect))
 
 
 
