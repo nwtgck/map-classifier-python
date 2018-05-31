@@ -12,6 +12,7 @@ coveralls = "*"
 
 [dev-packages]
 coveralls = "*"
+toml = "*"
 
 [requires]
 python_version = "3.5"
