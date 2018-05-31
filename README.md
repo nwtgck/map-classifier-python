@@ -5,10 +5,16 @@
 A classifier of Maximum A Posteriori (MAP) which is compatible with [scikit-learn](http://scikit-learn.org/).
 
 
-## Installation
+## Install with pip
 
 ```bash
 pip3 install --upgrade git+https://github.com/nwtgck/map-classifier-python.git
+```
+
+## Install with Pipenv
+
+```
+pipenv install git+https://github.com/nwtgck/map-classifier-python.git@v0.4.1#egg=map-classifier
 ```
 
 ## Mathematical expression
