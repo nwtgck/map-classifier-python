@@ -24,6 +24,7 @@ install:
 
 script:
   - pipenv install
+  - pipenv install --dev
   - pipenv run coverage run --source=map_classifier setup.py test
 
   # Example run
