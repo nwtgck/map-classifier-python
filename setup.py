@@ -4,16 +4,28 @@
 
 from setuptools import setup, find_packages
 import sys
+import toml
+
+def name_ver_join(name, ver):
+    if ver == "*":
+        return name
+    else:
+        return name + ver
+
+with open("Pipfile") as f:
+  pipfile_dict = toml.load(f)
+
+install_requires = [name_ver_join(name, ver) for name, ver in pipfile_dict['packages'].items()]
 
 sys.path.append('./tests')
 
 setup(
     name='map_classifier',
-    version='0.4.0',
+    version='0.4.1',
     description='Maximum A Posteriori Classifier',
     author='Ryo Ota',
     author_email='nwtgck@gmail.com',
-    install_requires=open('requirements.txt').read().splitlines(),
+    install_requires=install_requires,
     py_modules=["map_classifier"],
     packages=find_packages(),
     test_suite='tests'
