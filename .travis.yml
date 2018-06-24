@@ -31,6 +31,8 @@ script:
   - pip3 install --upgrade git+https://github.com/nwtgck/map-classifier-python.git#$TRAVIS_COMMIT
   - python examples/example1.py
 
+  - mkdir example_project && cd example_project && pipenv install git+https://github.com/nwtgck/map-classifier-python.git@$TRAVIS_COMMIT#egg=map-classifier
+
 after_success:
   - coveralls
 
