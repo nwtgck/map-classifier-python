@@ -14,6 +14,7 @@ pip3 install --upgrade git+https://github.com/nwtgck/map-classifier-python.git
 ## Install with Pipenv
 
 ```
+pipenv install --dev toml
 pipenv install git+https://github.com/nwtgck/map-classifier-python.git@v0.4.1#egg=map-classifier
 ```
 
